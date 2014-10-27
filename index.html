@@ -7,12 +7,11 @@
 		<script type="text/javascript" src="scripts/src/elasticsearch.js"></script>
 		<script type="text/javascript" src="scripts/src/search.js"></script>
 		<script type="text/javascript" src="scripts/src/ace.js" charset="utf-8"></script>
-		<link rel="stylesheet" href="screen.css">
-		<script type="text/javascript" src="scripts/src/theme-twilight.js" charset="utf-8">
-		</script>
+		<script type="text/javascript" src="scripts/src/theme-twilight.js" charset="utf-8"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="screen.css">
 		<title> 
 			IQS Elasticsearch Admin
 		</title>
@@ -55,17 +54,11 @@
 				<div class="col-sm-6">
 					<div>
 							<span class="label label-info">Json Document</span>
-						</div>
-					<!--<div class="panel panel-default">-->
-						<!--<div class="panel-body">-->
-
-								<div id="editor"></div>
-								<button class="btn btn-default" id="submitNewJson" ng-click='submitContent()' type="button">
-									<span class="glyphicon glyphicon-floppy-disk"></span> Save
-								</button>
-
-						<!-- </div> -->
-					<!-- </div>	 -->
+					</div>
+					<div id="editor"></div>
+					<button class="btn btn-default" id="submitNewJson" ng-click='submitContent()' type="button">
+						<span class="glyphicon glyphicon-floppy-disk"></span> Save
+					</button>
 				</div>
 			</div>
 		</div>	
