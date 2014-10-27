@@ -24,6 +24,10 @@ h1 {
 	padding-top: 5px;
 }
 
+.input-group {
+	width: 200px;
+}
+
 .col-sm-6 {
 	padding-top: 5px;
 	background-color: #f7f7f9;
@@ -38,4 +42,3 @@ h1 {
 #schemaBtn, #indicesBtn {
 	margin: 5px;
 }
-

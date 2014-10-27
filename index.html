@@ -29,7 +29,7 @@
 			</div>
 			<div id="schemaBtn">
 				<button id="schemas" class="btn btn-default" ng-click='fetch()' type="button">
-					  <span class="glyphicon glyphicon-file"></span> Schemas
+					  <span class="glyphicon glyphicon-file"></span> Items
 				</button>
 			</div>
 			<div class="row">
@@ -39,14 +39,16 @@
 						</div>
 						<div class="panel panel-default">
 							<div class="panel-body">
-									<div id="items" class="input-group" ng-repeat="hit in hits">
+
+								<div id="items" class="input-group indexItems" styles="width:400px" ng-repeat="hit in hits">
 									<span class="input-group-addon">{{hit._id}}</span>
-				      				<div class="input-group-btn">
-				      					<button id="selectSchema" class="btn btn-default" ng-click='selectItem(hit._source)' type="button">
-				      						<span class="glyphicon glyphicon-search"></span> View
-				      					</button>
-				      				</div>
+			      					<div class="input-group-btn">
+			      						<button id="selectSchema" class="btn btn-default" ng-click='selectItem(hit._source)' type="button">
+			      						<span class="glyphicon glyphicon-search"></span> View
+			      						</button>
+			      					</div>
 								</div>
+
 							</div>
 						</div>
 				</div>

@@ -60,8 +60,11 @@ function adminCtrl($scope, client) {
 	  		id: documentId,
 	  		body: deserializedJson
 	  	}, function (err, response) {
-	  		console.log(response);
-	  		alert('Response from server: /r hello');
+	  		if(err == undifined){
+	  			alert("There was an error saving the document: \r"+ err.message);
+	  		}
+	  		alert("Response from server: \rindex: " + response._index + "\rtype: " + response._type + "\rid: " + response._id + "\rversion: " + response._version);
 	  	});
 	};
 };
+
