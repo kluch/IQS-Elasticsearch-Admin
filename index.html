@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app='iqsElasticAdmin'>
 	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 		<script type="text/javascript" src="scripts/src/elasticsearch.angular.min.js"></script>
 		<script type="text/javascript" src="scripts/src/elasticsearch.js"></script>
@@ -9,34 +10,62 @@
 		<link rel="stylesheet" href="screen.css">
 		<script type="text/javascript" src="scripts/src/theme-twilight.js" charset="utf-8">
 		</script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<title> 
 			IQS Elasticsearch Admin
 		</title>
 	</head>
 	<body ng-controller='adminCtrl'>
-		<h1>
-			Json Documents	
-		</h1>
-		<div>
-			Select an Index
-		</div>
-		<div>
-			Schemas List
-			<button id="schemas" ng-click='fetch()' type="button">
-				Fetch
-			</button>
-			<div ng-repeat="hit in hits">
-				 <ul>
-				    <li>
-				      <span>{{hit._id}}</span>
-				      <button id="selectSchema" ng-click='selectItem(hit._source)' type="button">View</button>
-				    </li>
-				  </ul>
+		<div class="container">
+			<h1>
+				IQS Elasticsearch Admin Portal	
+			</h1>
+			<div id="indicesBtn">
+				<button id="indicies" class="btn btn-default" ng-click='getIndicies()' type="button">
+					<span class="glyphicon glyphicon-tasks"></span> Indicies
+				</button>
 			</div>
-		<div id="editorContainer"> 
-			Content
-			<div id="editor"></div>
-			<button id="submitNewJson" ng-click='submitContent()' type="button">Submit</button>
-		</div>
+			<div id="schemaBtn">
+				<button id="schemas" class="btn btn-default" ng-click='fetch()' type="button">
+					  <span class="glyphicon glyphicon-file"></span> Schemas
+				</button>
+			</div>
+			<div class="row">
+				 <div class="col-sm-6">
+						<div id="labels">
+							<span class="label label-info">Schema List</span>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-body">
+									<div id="items" class="input-group" ng-repeat="hit in hits">
+									<span class="input-group-addon">{{hit._id}}</span>
+				      				<div class="input-group-btn">
+				      					<button id="selectSchema" class="btn btn-default" ng-click='selectItem(hit._source)' type="button">
+				      						<span class="glyphicon glyphicon-search"></span> View
+				      					</button>
+				      				</div>
+								</div>
+							</div>
+						</div>
+				</div>
+				<div class="col-sm-6">
+					<div>
+							<span class="label label-info">Json Document</span>
+						</div>
+					<!--<div class="panel panel-default">-->
+						<!--<div class="panel-body">-->
+
+								<div id="editor"></div>
+								<button class="btn btn-default" id="submitNewJson" ng-click='submitContent()' type="button">
+									<span class="glyphicon glyphicon-floppy-disk"></span> Save
+								</button>
+
+						<!-- </div> -->
+					<!-- </div>	 -->
+				</div>
+			</div>
+		</div>	
 	</body>
 </html>

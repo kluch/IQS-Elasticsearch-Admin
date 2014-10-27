@@ -13,6 +13,25 @@ function adminCtrl($scope, client) {
 	editor.setTheme("ace/theme/twilight");
 	editor.getSession().setMode("ace/mode/json");
 
+/*	function getIndexEntries(index, type) {
+		client.search({
+		  index: 'schemas',
+		  type: 'schema',
+		}).then(function (resp) {
+			return resp.hits.hits;
+		}, function (err) {
+
+		}
+	};*/
+
+	/*$scope.getIndicies = function () {
+		client.cat.indicies({
+			local: false,
+		}, function (err, response){
+			console.log(response);
+		});
+	};*/
+
 	$scope.fetch = function () {
 		client.search({
 		  index: 'schemas',
@@ -42,6 +61,7 @@ function adminCtrl($scope, client) {
 	  		body: deserializedJson
 	  	}, function (err, response) {
 	  		console.log(response);
+	  		alert('Response from server: /r hello');
 	  	});
 	};
 };
