@@ -5,16 +5,15 @@
 		<script type="text/javascript" src="scripts/src/elasticsearch.angular.min.js"></script>
 		<script type="text/javascript" src="scripts/src/elasticsearch.js"></script>
 		<script type="text/javascript" src="scripts/src/search.js"></script>
-		<script src="scripts/src/ace.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="scripts/src/ace.js" charset="utf-8"></script>
 		<link rel="stylesheet" href="screen.css">
-		<script src="scripts/src/theme-twilight.js" type="text/javascript" charset="utf-8">
+		<script type="text/javascript" src="scripts/src/theme-twilight.js" charset="utf-8">
 		</script>
-		
 		<title> 
 			IQS Elasticsearch Admin
 		</title>
 	</head>
-	<body ng-controller='getSchemasCtrl'>
+	<body ng-controller='adminCtrl'>
 		<h1>
 			Json Documents	
 		</h1>
@@ -23,7 +22,9 @@
 		</div>
 		<div>
 			Schemas List
-			<button id="schemas" ng-click='fetch()' type="button">Fetch</button>
+			<button id="schemas" ng-click='fetch()' type="button">
+				Fetch
+			</button>
 			<div ng-repeat="hit in hits">
 				 <ul>
 				    <li>
@@ -32,7 +33,10 @@
 				    </li>
 				  </ul>
 			</div>
-			<div id="editor">test</div>
-			<script src="scripts/src/customAce.js" type="text/javascript"></script>
+		<div id="editorContainer"> 
+			Content
+			<div id="editor"></div>
+			<button id="submitNewJson" ng-click='submitContent()' type="button">Submit</button>
+		</div>
 	</body>
 </html>
