@@ -36,6 +36,20 @@ function adminCtrl($scope, client) {
 		});
 	}
 
+	//Get a document By Id
+	function getDocumentById (documentId){
+		client.get({
+		  index: indexName,
+		  id: documentId
+		}).then(function (resp) {
+			$scope.result = resp;
+			$scope.hits = resp.hits.hits;
+			console.log(resp);
+		}, function (err) {
+
+		})
+	}
+
 	//Get the content of the Ace code editor
 	function getEditorContent (){
 
@@ -86,6 +100,7 @@ function adminCtrl($scope, client) {
 		setEditorContent(hit._source);
 	};
 
+	//Delete an item from an index
 	$scope.deleteItem = function(hit){
 		alert("You are about to delete a document, are you sure you want to do this?");
 		alert("Are you really sure, please check");
