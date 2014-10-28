@@ -3,9 +3,12 @@ h1 {
 	padding-bottom: 15px;
 }
 
+h3 {
+	width: 200px;
+}
+
  #editor {
     position: center;
-    width: 500px;
     height: 506px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -24,21 +27,38 @@ h1 {
 	padding-top: 5px;
 }
 
-.input-group {
-	width: 200px;
+.table{
+	margin-bottom: 0px;
 }
 
 .col-sm-6 {
-	padding-top: 5px;
 	background-color: #f7f7f9;
 	border-radius: 5px;
 	border: 1px solid #e1e1e8;
+	padding-bottom: 5px;
+	width: 100%;
+	margin-bottom: 10px;
 }
 
 #label {
 	padding: 2px;
 }
 
-#schemaBtn, #indicesBtn {
+.panel-body {
+	padding-top: 0px
+}
+
+#editorActions{
+	padding-bottom: px;
+	float: right;
 	margin: 5px;
+}
+
+#countDiv {
+	padding: 5px;
+	float: right;
+}
+
+.input-group {
+	padding-top: 15px;
 }

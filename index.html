@@ -22,43 +22,103 @@
 				IQS Elasticsearch Admin Portal	
 			</h1>
 			<div id="indicesBtn">
-				<button id="indicies" class="btn btn-default" ng-click='getIndicies()' type="button">
-					<span class="glyphicon glyphicon-tasks"></span> Indicies
-				</button>
-			</div>
-			<div id="schemaBtn">
-				<button id="schemas" class="btn btn-default" ng-click='fetch()' type="button">
-					  <span class="glyphicon glyphicon-file"></span> Items
-				</button>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<h3>
+							Indicies
+						</h3>
+						<table class="table table-hover">
+							<tr>
+								<th>
+									Name
+								</th>
+								<th>
+									Status
+								</th>
+								<status
+							</tr>
+							<tr ng-repeat="index in indicies">
+								<td ng-click='fetchIndexItems(index)'>
+									{{index.name}}
+								</td>
+								<td>
+									{{index.status}}
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
 			</div>
 			<div class="row">
 				 <div class="col-sm-6">
-						<div id="labels">
-							<span class="label label-info">Schema List</span>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-body">
-
-								<div id="items" class="input-group indexItems" styles="width:400px" ng-repeat="hit in hits">
-									<span class="input-group-addon">{{hit._id}}</span>
-			      					<div class="input-group-btn">
-			      						<button id="selectSchema" class="btn btn-default" ng-click='selectItem(hit._source)' type="button">
-			      						<span class="glyphicon glyphicon-search"></span> View
-			      						</button>
-			      					</div>
-								</div>
-
+				 	<h3>
+						Search By Id
+					</h3>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="input-group">
+							  <div class="input-group-btn">
+							     <button type="button" class="btn btn-default">Go!</button>
+							  </div>
+							  <input type="text" class="form-control">
 							</div>
 						</div>
+					</div>
+					<hr>
+					<h3>
+						Documents
+					</h3>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div id="countDiv">
+								Count <span class="badge">{{result.hits.total}}</span>
+							</div>
+							<div id="countDiv">
+								Showing <span class="badge">{{result.hits.hits.length}}</span>
+							</div>
+							<table class="table table-striped" ng-show="hits.length">
+								<tr>
+									<th>
+										Document Id
+									</th>
+									<th>
+										Type
+									</th>
+									<th>
+										Action
+									</th>
+								</tr>
+								<tr ng-repeat="hit in hits">
+									<td>
+										{{hit._id}}
+									</td>
+									<td>
+										{{hit._type}}
+									</td>
+									<td>
+										<button id="viewItem" class="btn btn-default" ng-click='selectItem(hit)' type="button">
+			      						<span class="glyphicon glyphicon-search"></span> View
+			      						</button>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
 				</div>
 				<div class="col-sm-6">
-					<div>
-							<span class="label label-info">Json Document</span>
-					</div>
+					<h3>
+						Json
+					</h3>
+
 					<div id="editor"></div>
-					<button class="btn btn-default" id="submitNewJson" ng-click='submitContent()' type="button">
-						<span class="glyphicon glyphicon-floppy-disk"></span> Save
-					</button>
+						<div id="editorActions">
+							<button class="btn btn-default" id="submitNewJson" ng-click='submitContent()' type="button">
+							<span class="glyphicon glyphicon-floppy-disk"></span> Save
+						</button>
+						<button id="deleteItem" class="btn btn-default" ng-click='deleteItem(hit)' type="button">
+	  						<span class="glyphicon glyphicon-remove"></span> Delete
+						</button>
+						</div>
 				</div>
 			</div>
 		</div>	
