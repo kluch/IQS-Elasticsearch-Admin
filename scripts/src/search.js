@@ -19,6 +19,14 @@ function adminCtrl($scope, client) {
 
 	getIndicies();
 
+  	$scope.selectedItem = "Indicies";
+	  
+  	$scope.OnItemClick = function(event, name) {
+  		console.log(name);
+	    $scope.selectedItem = event;
+	    
+	};
+
 	function getIndicies (){
 		//Indicies scope Variable
 		$scope.indicies = [];
@@ -37,16 +45,28 @@ function adminCtrl($scope, client) {
 	}
 
 	//Get a document By Id
-	function getDocumentById (documentId){
+	function getDocumentById (indexName, docId){
+		console.log(indexName);
+		console.log(docId);
 		client.get({
 		  index: indexName,
-		  id: documentId
+		  id: docId
 		}).then(function (resp) {
-			$scope.result = resp;
-			$scope.hits = resp.hits.hits;
 			console.log(resp);
+			if(resp.hits.total === 0){
+				$scope.hits = [
+					{
+						"_id": "No Document Found with id: " + $scope.inputId,
+						"_type": "N/A"
+					}
+				]
+			} else {
+				$scope.result = resp;
+				$scope.hits = resp.hits.hits;
+				console.log(resp);	
+			}
 		}, function (err) {
-
+			console.log(err);
 		})
 	}
 
@@ -98,6 +118,16 @@ function adminCtrl($scope, client) {
 		selectedItemTypeName = hit._type;
 		selectedItemId = hit._id;
 		setEditorContent(hit._source);
+	};
+
+	$scope.getById = function (docId) {
+		console.log("the button has nbeen clicked")
+		$(".dropdown-menu li a").click(function(){
+		  	var selectedIndex = $(this).text();
+		  	console.log(selectedIndex);
+		  	 getDocumentById(docId, selectedIndex);
+		});
+		
 	};
 
 	//Delete an item from an index

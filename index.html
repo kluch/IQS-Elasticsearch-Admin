@@ -25,6 +25,26 @@
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<h3>
+							Search By Id
+						</h3>
+						<div class="input-group">
+						  <div class="input-group-btn">
+						  	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+						  		<span>{{ selectedItem }}</span>
+					     		<span class="caret"></span>
+					     	</button>
+					     	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" >
+					     		<li role="presentation" ng-click="OnItemClick(index.name, index.name)" ng-repeat="index in indicies">{{index.name}}</li>
+					     	</ul>
+					     	<button type="button" class="btn btn-default" ng-click="getById(docId)">Go!</button>
+						  </div>
+						  <input type="text" class="form-control" ng-model="docId">
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<h3>
 							Indicies
 						</h3>
 						<table class="table table-hover">
@@ -51,20 +71,6 @@
 			</div>
 			<div class="row">
 				 <div class="col-sm-6">
-				 	<h3>
-						Search By Id
-					</h3>
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<div class="input-group">
-							  <div class="input-group-btn">
-							     <button type="button" class="btn btn-default">Go!</button>
-							  </div>
-							  <input type="text" class="form-control">
-							</div>
-						</div>
-					</div>
-					<hr>
 					<h3>
 						Documents
 					</h3>
