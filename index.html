@@ -34,7 +34,7 @@
 					     		<span class="caret"></span>
 					     	</button>
 					     	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" >
-					     		<li role="presentation" ng-click="OnItemClick(index.name, index.name)" ng-repeat="index in indicies">{{index.name}}</li>
+					     		<li role="presentation" ng-click="OnItemClick(index.name, index.name)" ng-repeat="index in indicies" >{{index.name}}</li>
 					     	</ul>
 					     	<button type="button" class="btn btn-default" ng-click="getById(docId)">Go!</button>
 						  </div>
@@ -121,7 +121,7 @@
 							<button class="btn btn-default" id="submitNewJson" ng-click='submitContent()' type="button">
 							<span class="glyphicon glyphicon-floppy-disk"></span> Save
 						</button>
-						<button id="deleteItem" class="btn btn-default" ng-click='deleteItem(hit)' type="button">
+						<button id="deleteItem" class="btn btn-default" ng-click='deleteItem()' type="button">
 	  						<span class="glyphicon glyphicon-remove"></span> Delete
 						</button>
 						</div>

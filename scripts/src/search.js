@@ -98,7 +98,8 @@ function adminCtrl($scope, client) {
 		var hits;
 		selectedIndex = indexName;
 		client.search({
-		  index: indexName
+		  index: indexName,
+		  size: 100
 		}).then(function (resp) {
 			$scope.result = resp;
 			$scope.hits = resp.hits.hits;
@@ -131,14 +132,18 @@ function adminCtrl($scope, client) {
 	};
 
 	//Delete an item from an index
-	$scope.deleteItem = function(hit){
+	$scope.deleteItem = function(){
+		//console.log(hit);
 		alert("You are about to delete a document, are you sure you want to do this?");
-		alert("Are you really sure, please check");
-		deleteIndexEntry(hit._index, hit._type, hit._id);
+
+		deleteIndexEntry(selectedIndex, selectedItemTypeName, selectedItemId);
+
+		var session = editor.getSession();
+	  	var view = session.setValue("");
 
 		getIndicies();
 
-  		getIndexEntries(hit._index);
+  		getIndexEntries(selectedIndex);
 	}
 
 	$scope.submitContent = function() {
